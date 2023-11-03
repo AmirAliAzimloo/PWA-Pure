@@ -87,3 +87,36 @@ self.addEventListener("fetch", (event) => {
     );
   }
 });
+
+
+//! Do BacGroundSync Tasks
+
+//? Remove Course
+function removeHandler() {
+    db.removedCourse.toArray().then((courseIDs) => {
+      courseIDs.forEach(async (course) => {
+        const res = await fetch(
+          `https://pwa-cms.iran.liara.run/api/courses/${course._id}`,
+          {
+            method: "DELETE",
+          }
+        );
+  
+        if (res.status === 200) {
+          db.removedCourse
+            .where({ _id: course._id })
+            .delete()
+            .then(() =>
+              console.log("Course removed successfully from indexedDB :))")
+            )
+            .catch((err) => console.log("Error in remove course =>", err));
+        }
+      });
+    });
+  }
+
+self.addEventListener("sync",(event)=>{
+    if(event.tag == "remove-course"){
+        removeHandler()
+    }
+})
