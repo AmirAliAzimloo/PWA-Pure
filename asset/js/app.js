@@ -41,12 +41,34 @@ const createUi = (courses) => {
             </div>
             <div class="courses-btns">
               <a href="" class="courses-btn-edit btn">ویرایش</a>
-              <a href="" class="courses-btn-delete btn">حذف</a>
+              <a href="" class="courses-btn-delete btn" onclick="removeCourse(event,'${course._id}')" >حذف</a>
             </div>
           </li>
         `
       );
     });
+};
+
+const removeCourse = (event, _id) => {
+    event.preventDefault();
+  
+    if ("serviceWorker" in navigator && "SyncManager" in window) {
+      navigator.serviceWorker.ready.then((sw) => {
+        db.removedCourse
+          .put({ _id })
+          .then((data) =>
+            console.log("CourseID inserted successfully :)) =>", data)
+          )
+          .catch((err) => console.log("Err =>", err));
+  
+        return sw.sync
+          .register("remove-course")
+          .then(() => console.log("Task added successfully :))"))
+          .catch((err) => console.log("Error =>", err));
+      });
+    } else {
+      // Fetch
+    }
   };
 
 window.addEventListener("load",async()=>{
