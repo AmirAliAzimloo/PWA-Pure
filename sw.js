@@ -1,3 +1,7 @@
+//! Imports
+importScripts("/asset/js/dexie.js")
+importScripts("/asset/js/db.js")
+
 //! ServiceWorker Codes
 
 const cacheVersion = 1;
