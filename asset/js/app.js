@@ -1,3 +1,10 @@
+//! Variables
+
+const addCourseBtn = document.querySelector(".courses-btn-add-new-course");
+const addCourseModal = document.querySelector("#add-new-course-modal");
+const newCourseTitle = document.querySelector(".new-course-title");
+const modelAddCourseBtn = document.querySelector(".add-course-btn");
+
 //! Register ServiceWorker
 if("serviceWorker" in navigator){
     navigator.serviceWorker.register("../../sw.js")
@@ -69,7 +76,46 @@ const removeCourse = (event, _id) => {
     } else {
       // Fetch
     }
-  };
+};
+
+const showAddCourseModel = (event) => {
+    event.preventDefault();
+    addCourseModal.classList.add("visible");
+};
+
+const addCourse = (event) => {
+    event.preventDefault();
+    
+    const newCourse = {
+      title: newCourseTitle.value,
+    };
+  
+    console.log("New Course Info =>", newCourse);
+  
+    if ("serviceWorker" in navigator && "SyncManager" in window) {
+      navigator.serviceWorker.ready.then((sw) => {
+        db.newCourses
+          .put(newCourse)
+          .then((data) =>
+            console.log("Course inserted successfully :)) =>", data)
+          )
+          .catch((err) => console.log("Err =>", err));
+  
+        return sw.sync
+          .register("add-course")
+          .then(() => console.log("Task added successfully :))"))
+          .catch((err) => console.log("Error =>", err));
+      });
+    } else {
+      // Fetch
+    }
+};
+
+addCourseBtn.addEventListener("click", (event) => {
+    showAddCourseModel(event);
+  });
+  
+modelAddCourseBtn.addEventListener("click", addCourse);
 
 window.addEventListener("load",async()=>{
     const courses = await fetchCourse();
