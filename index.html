@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <link rel="manifest" href="manifest.json" />
     <title>Document</title>
   </head>
   <body>
@@ -189,7 +190,7 @@
 
           <!-- Courses List -->
           <ul class="courses-list">
-            <!-- <li class="courses-item">
+            <li class="courses-item">
               <div class="courses-img-title">
                 <img
                   src="asset/images/courses/PWA.jpg"
@@ -202,8 +203,8 @@
                 <a href="" class="courses-btn-edit btn">ویرایش</a>
                 <a href="" class="courses-btn-delete btn">حذف</a>
               </div>
-            </li> -->
-            <!-- <li class="courses-item">
+            </li>
+            <li class="courses-item">
               <div class="courses-img-title">
                 <img
                   src="asset/images/courses/js.png"
@@ -216,12 +217,16 @@
                 <a href="" class="courses-btn-edit btn">ویرایش</a>
                 <a href="" class="courses-btn-delete btn">حذف</a>
               </div>
-            </li> -->
+            </li>
           </ul>
           <!-- Courses List -->
         </section>
         <!-- End Courses -->
       </main>
     </div>
+
+    <script src="/asset/js/dexie.js" ></script>
+    <script src="/asset/js/db.js" ></script>
+    <script src="/asset/js/app.js" ></script>
   </body>
 </html>
