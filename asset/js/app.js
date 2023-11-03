@@ -5,6 +5,17 @@ const addCourseModal = document.querySelector("#add-new-course-modal");
 const newCourseTitle = document.querySelector(".new-course-title");
 const modelAddCourseBtn = document.querySelector(".add-course-btn");
 
+
+const modalContainers = document.querySelectorAll(".modal-container");
+
+
+//! Utils Action 
+modalContainers.forEach((modalContainer) => {
+  modalContainer.addEventListener("click", (event) => {
+    event.target.classList.remove("visible");
+  });
+});
+
 //! Register ServiceWorker
 if("serviceWorker" in navigator){
     navigator.serviceWorker.register("../../sw.js")
