@@ -164,7 +164,7 @@ function discountHandler(){
   
         if (res.status === 201) {
           db.discounts
-            .where({ discount: discountInfo.discount })
+            .where({ discount: Number(discountInfo.discount) })
             .delete()
             .then(() =>
               console.log("Discount info removed successfully from indexedDB :))")
