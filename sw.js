@@ -149,7 +149,7 @@ function discountHandler(){
   db.discounts.toArray().then((discounts) => {
     discounts.forEach(async (discountInfo) => {
         const res = await fetch(
-          `https://pwa-cms.iran.liara.run/api/discount`,
+          `https://pwa-cms.iran.liara.run/api/courses/discount`,
           {
             method: "POST",
             headers:{
