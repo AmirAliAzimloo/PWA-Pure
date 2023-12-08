@@ -146,7 +146,31 @@ function addHandler(){
 
 //? Add discount
 function discountHandler(){
-  // codes
+  // db.newCourses.toArray().then((courses) => {
+  //     courses.forEach(async (course) => {
+  //       const res = await fetch(
+  //         `https://pwa-cms.iran.liara.run/api/courses/`,
+  //         {
+  //           method: "POST",
+  //           headers:{
+  //             "Content-Type" :"Application/json"
+  //           },
+  //           body:JSON.stringify({title : course.title})
+  //         },
+          
+  //       );
+  
+  //       if (res.status === 201) {
+  //         db.newCourses
+  //           .where({ title: course.title })
+  //           .delete()
+  //           .then(() =>
+  //             console.log("Course removed successfully from indexedDB :))")
+  //           )
+  //           .catch((err) => console.log("Error in remove course =>", err));
+  //       }
+  //     });
+  //   });
 }
 
 self.addEventListener("sync",(event)=>{
