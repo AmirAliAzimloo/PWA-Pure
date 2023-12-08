@@ -6,6 +6,7 @@ const addCourseModal = document.querySelector("#add-new-course-modal");
 const addDiscountsModal = document.querySelector("#add-discounts-modal");
 const newCourseTitle = document.querySelector(".new-course-title");
 const modelAddCourseBtn = document.querySelector(".add-course-btn");
+const modelAddDiscountBtn = document.querySelector(".add-discount-btn");
 
 
 const modalContainers = document.querySelectorAll(".modal-container");

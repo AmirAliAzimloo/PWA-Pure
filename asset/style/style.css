@@ -108,6 +108,14 @@ body{
     box-shadow: #42b3009a 0px 8px 24px;  
     font-family: inherit;
 }
+.add-discount-btn{
+    cursor: pointer;
+    width: 100%;
+    background-color: #41b300;
+    color: #fff;
+    box-shadow: #42b3009a 0px 8px 24px;  
+    font-family: inherit;
+}
 .edit-user-form {
     margin-top: 10px;
     text-align: left;
