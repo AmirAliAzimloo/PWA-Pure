@@ -59,7 +59,7 @@ const createUi = (courses) => {
                 alt=""
                 class="courses-img"
               />
-              <h5 class="courses-name">${course.title}</h5>
+              <h5 class="courses-name">${course.title} - (off ${course.discount}%)</h5>
             </div>
             <div class="courses-btns">
               <a href="" class="courses-btn-edit btn">ویرایش</a>
