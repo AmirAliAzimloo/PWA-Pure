@@ -146,34 +146,37 @@ function addHandler(){
 
 //? Add discount
 function discountHandler(){
-  // db.newCourses.toArray().then((courses) => {
-  //     courses.forEach(async (course) => {
-  //       const res = await fetch(
-  //         `https://pwa-cms.iran.liara.run/api/courses/`,
-  //         {
-  //           method: "POST",
-  //           headers:{
-  //             "Content-Type" :"Application/json"
-  //           },
-  //           body:JSON.stringify({title : course.title})
-  //         },
+  db.discounts.toArray().then((discounts) => {
+    discounts.forEach(async (discountInfo) => {
+        const res = await fetch(
+          `https://pwa-cms.iran.liara.run/api/discount`,
+          {
+            method: "POST",
+            headers:{
+              "Content-Type" :"Application/json"
+            },
+            body:JSON.stringify({discount : discountInfo.discount})
+          },
           
-  //       );
+        );
+
+        console.log("Add Discount Successfully :)")
   
-  //       if (res.status === 201) {
-  //         db.newCourses
-  //           .where({ title: course.title })
-  //           .delete()
-  //           .then(() =>
-  //             console.log("Course removed successfully from indexedDB :))")
-  //           )
-  //           .catch((err) => console.log("Error in remove course =>", err));
-  //       }
-  //     });
-  //   });
+        if (res.status === 201) {
+          db.discounts
+            .where({ discount: discountInfo.discount })
+            .delete()
+            .then(() =>
+              console.log("Discount info removed successfully from indexedDB :))")
+            )
+            .catch((err) => console.log("Error in remove Discount info =>", err));
+        }
+      });
+    });
 }
 
 self.addEventListener("sync",(event)=>{
+  console.log("sync event =>",event)
     if(event.tag == "remove-course"){
         removeHandler()
     }else if(event.tag == "add-course"){
