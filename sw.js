@@ -144,10 +144,17 @@ function addHandler(){
       });
 }
 
+//? Add discount
+function discountHandler(){
+  // codes
+}
+
 self.addEventListener("sync",(event)=>{
     if(event.tag == "remove-course"){
         removeHandler()
     }else if(event.tag == "add-course"){
         addHandler()
+    }else if(event.tag == "add-discount"){
+        discountHandler()
     }
 })

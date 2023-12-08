@@ -5,4 +5,5 @@ db.version(dbVersion).stores({
     courses:"_id",
     removedCourse: "_id",
     newCourses: "title",
+    discounts: "discount",
 })

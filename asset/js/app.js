@@ -5,6 +5,7 @@ const addDiscountsBtn = document.querySelector(".add-discounts");
 const addCourseModal = document.querySelector("#add-new-course-modal");
 const addDiscountsModal = document.querySelector("#add-discounts-modal");
 const newCourseTitle = document.querySelector(".new-course-title");
+const discountInput = document.querySelector(".discount-input");
 const modelAddCourseBtn = document.querySelector(".add-course-btn");
 const modelAddDiscountBtn = document.querySelector(".add-discount-btn");
 
@@ -129,6 +130,39 @@ const addCourse = (event) => {
     }
 };
 
+
+const addDiscount = (event) => {
+  
+  event.preventDefault();
+  
+      
+  const discountInfo = {
+    discount: discountInput.value,
+  };
+
+
+  if ("serviceWorker" in navigator && "SyncManager" in window) {
+    navigator.serviceWorker.ready.then((sw) => {
+      db.discounts
+        .put(discountInfo)
+        .then((data) =>
+          console.log("Discount info inserted successfully :)) =>", data)
+        )
+        .catch((err) => console.log("Err =>", err));
+
+      return sw.sync
+        .register("add-discount")
+        .then(() => console.log("Task (Discount) added successfully :))"))
+        .catch((err) => console.log("Error =>", err));
+    });
+  } else {
+    // Fetch
+  }
+
+
+    
+};
+
 addCourseBtn.addEventListener("click", (event) => {
     showAddCourseModel(event);
   });
@@ -137,6 +171,8 @@ addDiscountsBtn.addEventListener("click", (event) => {
   });
   
 modelAddCourseBtn.addEventListener("click", addCourse);
+
+modelAddDiscountBtn.addEventListener("click", addDiscount);
 
 window.addEventListener("load",async()=>{
     const courses = await fetchCourse();
