@@ -1,7 +1,9 @@
 //! Variables
 
 const addCourseBtn = document.querySelector(".courses-btn-add-new-course");
+const addDiscountsBtn = document.querySelector(".add-discounts");
 const addCourseModal = document.querySelector("#add-new-course-modal");
+const addDiscountsModal = document.querySelector("#add-discounts-modal");
 const newCourseTitle = document.querySelector(".new-course-title");
 const modelAddCourseBtn = document.querySelector(".add-course-btn");
 
@@ -93,6 +95,10 @@ const showAddCourseModel = (event) => {
     event.preventDefault();
     addCourseModal.classList.add("visible");
 };
+const showAddDiscountsModel = (event) => {
+    event.preventDefault();
+    addDiscountsModal.classList.add("visible");
+};
 
 const addCourse = (event) => {
     event.preventDefault();
@@ -124,6 +130,9 @@ const addCourse = (event) => {
 
 addCourseBtn.addEventListener("click", (event) => {
     showAddCourseModel(event);
+  });
+addDiscountsBtn.addEventListener("click", (event) => {
+    showAddDiscountsModel(event);
   });
   
 modelAddCourseBtn.addEventListener("click", addCourse);

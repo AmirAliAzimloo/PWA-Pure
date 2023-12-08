@@ -301,6 +301,11 @@ a.active {
     color: #fff;
     box-shadow: #42b3009a 0px 8px 24px;
 }
+.add-discounts{
+    background-color: #41b300;
+    color: #fff;
+    box-shadow: #42b3009a 0px 8px 24px;
+}
 
 .courses-list{
     display: flex;
